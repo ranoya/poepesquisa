@@ -415,7 +415,7 @@
                 border-bottom: 1px dashed #bbbbbb88;
             }
 
-            
+
 
             @media screen and (max-width: 1070px) {
                 .tabelaacoes {
@@ -516,20 +516,22 @@
 
               if (
                 (regcolunas[c][h].Ref != "" &&
-                  typeof regcolunas[c][h].Ref != "undefined") ||
-                (regcolunas[c][h].Exemplo != "" &&
-                  typeof regcolunas[c][h].Exemplo != "undefined")
+                  typeof regcolunas[c][h].Ref != "undefined")
               ) {
                 if (typeof regcolunas[c][h].Ref == "undefined") {
                   regcolunas[c][h].Ref == "";
                 }
-                if (typeof regcolunas[c][h].Exemplo == "undefined") {
-                  regcolunas[c][h].Exemplo == "";
-                }
-                code += `<div class='refer'>
-                    <div>${regcolunas[c][h].Ref}</div>
-                    <div>${regcolunas[c][h].Exemplo}</div>
+
+                if (typeof regcolunas[c][h].Link != "undefined" && regcolunas[c][h].Link != "") {
+                  code += `<div class='refer'>
+                    <div><a target='_blank' href='${regcolunas[c][h]..Link}'>${regcolunas[c][h].Ref}</a></div>
                     </div>`;
+                } else {
+                  code += `<div class='refer'>
+                    <div>${regcolunas[c][h].Ref}</div>
+                    </div>`;
+                }
+
               }
 
               let listalinks = regcolunas[c][h].Tags.split(" ");
