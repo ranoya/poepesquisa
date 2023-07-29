@@ -344,9 +344,9 @@
           par = par.replace(">", "#");
           notetags[0] = arrowtag[0].replace(">", "#");
 
-          arr = select(jsondata, multipatterncheck_exclude, par);
+          arr = select(oarr, multipatterncheck_exclude, par);
         } else {
-          arr = select(jsondata, multipatterncheck_exclude, par);
+          arr = select(oarr, multipatterncheck_exclude, par);
           notetags = tags(arr, "Tags", " ");
         }
 
