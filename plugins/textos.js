@@ -15,12 +15,10 @@ let textos = function (par) {
     .then((jsondata) => {
       let dados = select(jsondata, multipatterncheck_exclude, par);
       let selectedarr = tags(dados, groupkey, ",");
-      let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteka</span><span class='categoria'>&nbsp;</span>`;
-      let arr = orderbytemplate(dados, selectedarr, groupkey, [
-        namekey,
-        groupkey,
-        linkkey
-      ]);
+        let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria'>&nbsp;</span>`;
+        
+        let arr = sortbylist(dados, selectedarr, groupkey);
+
       if (arr.length > 10) {
         for (let c = 0; c < selectedarr.length; c++) {
             code += `
