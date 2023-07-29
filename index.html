@@ -319,14 +319,11 @@
     // Processing data filters (this is the real deal!)
 
     let colecao = [];
-    let categorias = [];
 
     omnifilter = function (oarr) {
       document.getElementById("outputs").style.overflow = "auto";
 
       if (
-        document.getElementsByTagName("input")[0].value.toString().charAt(0) !=
-          ">" &&
         document.getElementsByTagName("input")[0].value.toString().charAt(0) !=
           "@" &&
         document.getElementsByTagName("input")[0].value.toString().charAt(0) !=
@@ -337,6 +334,9 @@
         let code = ``;
         let arr = [];
         let notetags = [];
+        let par = document
+          .getElementsByTagName("input")[0]
+          .match(/^([\w\-]+) (.*)/)[2];
 
         let arrowtag = par.match(/(>\S*)/gi);
 
