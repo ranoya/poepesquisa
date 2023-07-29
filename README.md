@@ -1,6 +1,6 @@
 # Poe Pesquisa
 
-Esta é uma instância da [ferramenta POE](https://github.com/ranoya/poepalette) dedicada ao trabalho de pesquisa, direcionada para realizar fuzzy search dentro de anotações registradas por pesquisadores, e complementada por alguns outros plug-ins úteis para quem desempenha este tipo de trabalho
+Esta é uma instância da [ferramenta POE](https://github.com/ranoya/poepalette) dedicada ao trabalho de pesquisa, direcionada para realizar fuzzy search dentro de anotações registradas por pesquisadores, e complementada por alguns outros plugins úteis para quem desempenha este tipo de trabalho.
 
 Trata-se de um recurso já integrado ao meu POE pessoal, que os colegas pesquisadores Rodrigo Medeiros e Rafael de Castro Andrade (Ancara) solicitaram que fosse compartilhado com os demais pesquisadores.
 
@@ -17,10 +17,11 @@ O POE Pesquisa recebe estes dados no formato JSON, e o mecanismo mais simples pa
 1. Na sua planilha, defina o compartilhamento como "Todos com o link podem ver";
 2. Observe a URL completa da sua planilha (ex. [https://docs.google.com/spreadsheets/d/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/edit#gid=444640757](https://docs.google.com/spreadsheets/d/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/edit#gid=444640757) ) e identifique o ID, que é a sequência de números e letras depois do /d/ e antes do /edit, que neste caso será `1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8`. Verifique também o nome da aba onde estão os dados na planilha, que nesta indicada é "Notas".
 3. Seus dados serão exportados para JSON através do link `https://opensheet.elk.sh/ ID DA PLANILHA / NOME DA ABA`, que neste caso será [https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas](https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas) (se clicar na URL, verá os dados convertidos para JSON!)
-4. Informe este link para o POE Pesquisa através da variável de URL json, da seguinte forma: [https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas](https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas)
+4. Informe este link para o POE Pesquisa através da variável de URL `json`, da seguinte forma: [https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas](https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas)
 
 A planilha (ou o JSON) precisarão ter os mesmos campos presentes neste exemplo, isto é:
-|-----|-----|-----|-----|----|----|
+
+| | | | | | |
 | Título | Descrit | Tags | Ref | Link | Metatags |
 |-----|-----|-----|-----|----|----|
 
@@ -43,12 +44,14 @@ E para os arquivos, utilizaremos a variável `files`, com o o link `https://open
 Os dados dos textos e dos arquivos precisam ter as mesmas estruturas apresentadas na planilha de exemplo.
 
 Para textos:
-|-----|-----|-----|-----|----|
+
+| | | | | |
 | ano | tipologia | titulo | link | palavras-chave |
 |-----|-----|-----|-----|----|
 
 e para arquivos:
-|-----|-----|-----|-----|
+
+| | | | |
 | Name | Link | Type | Service |
 |-----|-----|-----|-----|
 
