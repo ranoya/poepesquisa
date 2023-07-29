@@ -94,7 +94,7 @@
             fill="var(--text-color, red)"
           />
         </svg>
-        <span id="maintitle">POE</span><span id="relogio"></span
+        <span id="maintitle">POE PESQUISA</span><span id="relogio"></span
       ></span>
     </div>
 
@@ -204,10 +204,10 @@
       );
     } else {
       let titltag = document.createElement("title");
-      let titcontent = document.createTextNode("POE");
+      let titcontent = document.createTextNode("POE Pesquisa");
       titltag.appendChild(titcontent);
       document.head.appendChild(titltag);
-      document.getElementById("maintitle").innerHTML = "POE";
+      document.getElementById("maintitle").innerHTML = "POE Pesquisa";
     }
 
     // Customizing looks by loading new CSS
@@ -222,6 +222,19 @@
       lnkcss.type = "text/css";
       lnkcss.rel = "stylesheet";
       document.head.appendChild(lnkcss);
+    }
+
+    // Lista de livros
+
+    let jsonlivros =
+      "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos";
+
+    if (
+      typeof $_GET["textos"] !== "undefined" &&
+      $_GET["textos"] != "" &&
+      $_GET["textos"] != null
+    ) {
+      jsonlivros = $_GET["textos"];
     }
 
     // Fetch and load Plugins
@@ -252,7 +265,7 @@
         });
     } else {
       fetch(
-        "https://opensheet.elk.sh/1u0gd9ciVrm240UPPR8O6nC_4FxJmSr6plXEodh8ar5o/Custom"
+        "https://opensheet.elk.sh/1Kot76uXzm1cU8m-53XatRs7qfoOcAudl-crgmNNc8H8/Custom"
       )
         .then((response) => response.json())
         .then((dados) => {
@@ -276,7 +289,7 @@
 
     let cloudfiles = [];
     let filesjson =
-      "https://opensheet.elk.sh/1Jim3mrmeO4Q1v84iX-S7TgjM28bnyGLRqnc1CXJWd8g/Reference";
+      "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos";
 
     if (
       typeof $_GET["json"] !== "undefined" &&
@@ -311,7 +324,7 @@
       omnifilterfetchdata($_GET["json"], "entrada");
     } else {
       omnifilterfetchdata(
-        "https://opensheet.elk.sh/1ywz7XciIATPOn5cF-L51XELMxFaLmgyBZneETNCycG4/Notes",
+        "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas",
         "entrada"
       );
     }
@@ -444,20 +457,16 @@
 
             code += `<div style='display: block; text-align: right;'>`;
 
-            if (
-              (arr[i].Ref != "" && typeof arr[i].Ref != "undefined") ||
-              (arr[i].Exemplo != "" && typeof arr[i].Exemplo != "undefined")
-            ) {
-              if (typeof arr[i].Ref == "undefined") {
-                arr[i].Ref == "";
-              }
-              if (typeof arr[i].Exemplo == "undefined") {
-                arr[i].Exemplo == "";
-              }
-              code += `<div class='refer'>
-                    <div>${arr[i].Ref}</div>
-                    <div>${arr[i].Exemplo}</div>
+            if (arr[i].Ref != "" && typeof arr[i].Ref != "undefined") {
+              if (typeof arr[i].Link != "undefined" && arr[i].Link != "") {
+                code += `<div class='refer'>
+                    <div><a target='_blank' href='${arr[i].Link}'>${arr[i].Ref}</a></div>
                     </div>`;
+              } else {
+                code += `<div class='refer'>
+                    <div>${arr[i].Ref}</div>
+                    </div>`;
+              }
             }
 
             for (let k = 0; k < listalinks.length; k++) {
