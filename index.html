@@ -334,9 +334,7 @@
         let code = ``;
         let arr = [];
         let notetags = [];
-        let inputpar = document.getElementsByTagName("input")[0];
-
-        let par = inputpar.toString().match(/^([\w\-]+) (.*)/)[2];
+        let par = document.getElementsByTagName("input")[0].value;
 
         let arrowtag = par.match(/(>\S*)/gi);
 
