@@ -21,9 +21,8 @@ O POE Pesquisa recebe estes dados no formato JSON, e o mecanismo mais simples pa
 
 A planilha (ou o JSON) precisarão ter os mesmos campos presentes neste exemplo, isto é:
 
-| | | | | | |
 | Título | Descrit | Tags | Ref | Link | Metatags |
-|-----|-----|-----|-----|----|----|
+| ------ | ------- | ---- | --- | ---- | -------- |
 
 (Metatags ficam invisíveis, mas continuam sendo um critério para filtrar as informações)
 
@@ -45,15 +44,13 @@ Os dados dos textos e dos arquivos precisam ter as mesmas estruturas apresentada
 
 Para textos:
 
-| | | | | |
 | ano | tipologia | titulo | link | palavras-chave |
-|-----|-----|-----|-----|----|
+| --- | --------- | ------ | ---- | -------------- |
 
 e para arquivos:
 
-| | | | |
 | Name | Link | Type | Service |
-|-----|-----|-----|-----|
+| ---- | ---- | ---- | ------- |
 
 Neste caso, `Type` pode ser vazio, `embed` ou `self`, indicando se o link abrirá em uma nova janela, dentro do POE Pesquisa, ou no lugar do POE Pesquisa (mesma janela);
 
