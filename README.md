@@ -56,6 +56,47 @@ Neste caso, `Type` pode ser vazio, `embed` ou `self`, indicando se o link abrir�
 
 Você pode criar quantas outras colunas desejar em todas as planilhas. As colunas mínimas estando presentes, o resto que for incluído também será usado pelo mecanismo de filtragem.
 
+# Conveniência
+
+Você pode transformar esse site em um aplicativo com o Google Chrome (Menu > Mais Ferramentas > Criar Atalho > ✓ Abrir como janela), incluí-lo nos seus bookmarks, ou enfim, manter isso há um click de acesso da maneira como preferir.
+
+Você pode utilizar a mesma ferramenta para manter bases de anotações diferentes, mudando apenas a URL na variável `json`, e inclusive manter bases compartilhadas com outros pesquisadores, podendo navegar nestes registros através do fuzzy search do POE Pesquisa.
+
 # Customizações
 
 O POE Pesquisa funciona exatamente como a [ferramenta POE](https://github.com/ranoya/poepalette). É possível customizar sua aparência (cores, fontes, etc.), e também incluir novos plugins. Os mecanismos para fazer estas customizações estão disponíveis na documentação do POE, e as modificações são também indicadas através de variáveis (`css` e `plugins`) de URL.
+
+Se desejar implementá-lo em um servidor próprio, e quiser modificar os dados default, aqui se encontram as linhas onde deverá fazer a modificação:
+
+CSS, linha 69 do index.html
+
+```html
+<link rel="stylesheet" type="text/css" href="./dev/style.css" />
+```
+
+Base de Livros, linha 229 do index.html
+
+```js
+let jsonlivros =
+  "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos";
+```
+
+Plugins de Livros, linha 267 do index.html
+
+```js
+     fetch(
+        "https://opensheet.elk.sh/1Kot76uXzm1cU8m-53XatRs7qfoOcAudl-crgmNNc8H8/Custom"
+```
+
+Base de Arquivos, linha 291 do index.html
+
+```js
+let filesjson =
+  "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos";
+```
+
+Base de Anotações, linha 327 do index.html
+
+```js
+       "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas",
+```
