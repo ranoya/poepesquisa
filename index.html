@@ -515,23 +515,25 @@
               code += `<div class='card' style='margin-bottom: 16px;'><b>${regcolunas[c][h].Titulo}</b><br>${regcolunas[c][h].Descrit}<br>`;
 
               if (
-                (regcolunas[c][h].Ref != "" &&
-                  typeof regcolunas[c][h].Ref != "undefined")
+                regcolunas[c][h].Ref != "" &&
+                typeof regcolunas[c][h].Ref != "undefined"
               ) {
                 if (typeof regcolunas[c][h].Ref == "undefined") {
                   regcolunas[c][h].Ref == "";
                 }
 
-                if (typeof regcolunas[c][h].Link != "undefined" && regcolunas[c][h].Link != "") {
+                if (
+                  typeof regcolunas[c][h].Link != "undefined" &&
+                  regcolunas[c][h].Link != ""
+                ) {
                   code += `<div class='refer'>
-                    <div><a target='_blank' href='${regcolunas[c][h]..Link}'>${regcolunas[c][h].Ref}</a></div>
+                    <div><a target='_blank' href='${regcolunas[c][h].Link}'>${regcolunas[c][h].Ref}</a></div>
                     </div>`;
                 } else {
                   code += `<div class='refer'>
                     <div>${regcolunas[c][h].Ref}</div>
                     </div>`;
                 }
-
               }
 
               let listalinks = regcolunas[c][h].Tags.split(" ");
