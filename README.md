@@ -81,7 +81,7 @@ let jsonlivros =
   "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos";
 ```
 
-Plugins de Livros, linha 267 do index.html
+Plugins, linha 267 do index.html
 
 ```js
      fetch(
