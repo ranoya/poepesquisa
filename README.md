@@ -28,7 +28,7 @@ A planilha (ou o JSON) precisarão ter os mesmos campos presentes neste exemplo,
 
 Se desejar tirar uma cópia da planilha base, basta [clicar aqui](https://docs.google.com/spreadsheets/d/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/copy)
 
-Mais duas outras planilhas podem ser úteis: uma com a relação de textos (livros, artigos, etc.) com seus respectivos links, e outra com arquivos online (planilhas, docs, códigos, etc.) em que você esteja trabalhando e precisará acessar rapidamente. Cada uma destas planilhas pode ser um arquivo independente, mas no exemplo preferimos colocá-las todas juntas no mesmo Google Sheets (é você quem decide como se organizar).
+Mais três outras planilhas podem ser úteis: uma com a relação de textos (livros, artigos, etc.) com seus respectivos links; outra com arquivos online (planilhas, docs, códigos, etc.) em que você esteja trabalhando e precisará acessar rapidamente; e uma terceira com opções para um menu superior, para acessar as funções de forma mais simples. Cada uma destas planilhas pode ser um arquivo independente, mas no exemplo preferimos colocá-las todas juntas no mesmo Google Sheets (é você quem decide como se organizar).
 
 Estes dados também são recebidos por JSON, e o procedimento para idincá-los é o mesmo usado para indicar as anotações, só que através de variáveis de URL diferentes:
 
@@ -36,18 +36,27 @@ Para os textos, utilizaremos a variável `textos`, utilizando o link `https://op
 
 [https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas&textos=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos](https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas&textos=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos)
 
-E para os arquivos, utilizaremos a variável `files`, com o o link `https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos`, resultando nessa URL para o POE Pesquisa:
+Para os arquivos, utilizaremos a variável `files`, com o o link `https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos`, resultando nessa URL para o POE Pesquisa:
 
 [https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas&textos=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos&files=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos](https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas&textos=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos&files=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos)
 
-Os dados dos textos e dos arquivos precisam ter as mesmas estruturas apresentadas na planilha de exemplo.
+Para o menu utilizaremos a variável `custommenu`, com o link `https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/CustomMenu`, resultando nessa URL com todas as opções para o POE Pesquisa:
+
+[https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas&textos=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos&files=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos&custommenu=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/CustomMenu](https://poepesquisa.vercel.app/?json=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas&textos=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos&files=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos&custommenu=https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/CustomMenu)
+
+Os dados dos textos, arquivos e menus precisam ter as mesmas estruturas apresentadas na planilha de exemplo.
 
 Para textos:
 
 | ano | tipologia | titulo | link | palavras-chave |
 | --- | --------- | ------ | ---- | -------------- |
 
-e para arquivos:
+Para menus:
+
+| menu | instruct |
+| ---- | -------- |
+
+Para arquivos:
 
 | Name | Link | Type | Service |
 | ---- | ---- | ---- | ------- |
@@ -74,28 +83,28 @@ CSS, linha 69 do index.html
 <link rel="stylesheet" type="text/css" href="./dev/style.css" />
 ```
 
-Base de Livros, linha 229 do index.html
+Base de Livros, linha 238 do index.html
 
 ```js
 let jsonlivros =
   "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Textos";
 ```
 
-Plugins, linha 267 do index.html
+Plugins, linha 297 do index.html
 
 ```js
      fetch(
         "https://opensheet.elk.sh/1Kot76uXzm1cU8m-53XatRs7qfoOcAudl-crgmNNc8H8/Custom"
 ```
 
-Base de Arquivos, linha 291 do index.html
+Base de Arquivos, linha 321 do index.html
 
 ```js
 let filesjson =
   "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Arquivos";
 ```
 
-Base de Anotações, linha 327 do index.html
+Base de Anotações, linha 356 do index.html
 
 ```js
        "https://opensheet.elk.sh/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/Notas",
