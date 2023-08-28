@@ -170,6 +170,10 @@ a:hover {
   margin-right: 16px;
 }
 
+#menucustom a {
+  margin-right: 0;
+}
+
 @keyframes pisca {
   0% {
     color: var(--text-color, #616161);
