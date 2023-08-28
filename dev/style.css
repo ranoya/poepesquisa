@@ -6,10 +6,20 @@
   --color-hover: #34f8d1;
   --input-text: #cfeceb;
   --scroll-track: #ffffff00;
+  --ranoyav2-texto: #aaaaaa;
+  --ranoyav2-detalhes3: #34f8d1;
 }
 
 label {
   display: none;
+}
+
+.timelinerlinhasano {
+  opacity: 0.2 !important;
+}
+
+.timelinemarks {
+  fill: var(--text-color, #a7caca);
 }
 
 ::-webkit-scrollbar {
