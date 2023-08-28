@@ -94,7 +94,8 @@
             fill="var(--text-color, red)"
           />
         </svg>
-        <span id="maintitle">POE PESQUISA</span><span id="relogio"></span
+        <span id="maintitle">POE PESQUISA</span><span id="menucustom"></span
+        ><span id="relogio"></span
       ></span>
     </div>
 
@@ -242,6 +243,27 @@
       $_GET["textos"] != null
     ) {
       jsonlivros = $_GET["textos"];
+    }
+
+    // Fetch custom menu
+
+    if (
+      typeof $_GET["custommenu"] !== "undefined" &&
+      $_GET["custommenu"] != "" &&
+      $_GET["custommenu"] != null
+    ) {
+      fetch($_GET["custommenu"])
+        .then((response) => response.json())
+        .then((dados) => {
+          // console.table(dados);
+
+          let constroimenu = "";
+          for (i = 0; i < dados.length; i++) {
+            constroimenu += `<a target='_self' href='${dados[i].instruct}'>${dados[i].menu}</a>`;
+          }
+
+          document.getElementById("menucustom").innerHTML = constroimenu;
+        });
     }
 
     // Fetch and load Plugins

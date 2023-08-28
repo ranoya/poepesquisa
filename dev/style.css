@@ -165,6 +165,11 @@ a:hover {
   animation-iteration-count: infinite;
 }
 
+#menucustom {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 @keyframes pisca {
   0% {
     color: var(--text-color, #616161);
