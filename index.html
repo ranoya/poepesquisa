@@ -391,8 +391,6 @@
           notetags = tags(arr, "Tags", " ");
         }
 
-        selectdados = arr;
-
         code += `
             <style>
             .tabelaflex {
@@ -651,6 +649,8 @@
           arr = cfilter(cloudfiles, "Service", serv[2]);
           let howmanyservices = unique(arr, "Service");
 
+          selectdados = arr;
+
           // in case of multiple services match
           if (howmanyservices.length > 1) {
             let myhtml = `<div class="outputgrid">`;
@@ -678,6 +678,8 @@
 
             // this option is to match with everything
             let narr = select(arr, multipatterncheck_exclude, param[3]);
+
+            selectdados = narr;
 
             let myhtml = `<div class="outputgrid">`;
             for (let i = 0; i < narr.length; i++) {
