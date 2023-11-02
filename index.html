@@ -161,12 +161,20 @@
       document.getElementsByTagName("input")[0].focus();
     }, 10000);
 
-    document.getElementsByTagName("input")[0].onfocus = function () {
+    if (
+      typeof $_GET["run"] == "undefined" ||
+      $_GET["run"] == null ||
+      $_GET["run"] != ""
+    ) {
+      document.getElementsByTagName("input")[0].onfocus = function () {
+        clearInterval(voltaaoinput);
+        voltaaoinput = setInterval(function () {
+          document.getElementsByTagName("input")[0].focus();
+        }, 10000);
+      };
+    } else {
       clearInterval(voltaaoinput);
-      voltaaoinput = setInterval(function () {
-        document.getElementsByTagName("input")[0].focus();
-      }, 10000);
-    };
+    }
 
     // Clock
     let addzero = function (str) {
