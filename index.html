@@ -694,6 +694,14 @@
       }
     };
 
+    if (
+      typeof $_GET["startcommand"] != "undefined" &&
+      $_GET["startcommand"] != null &&
+      $_GET["startcommand"] != ""
+    ) {
+      setinput($_GET["startcommand"]);
+    }
+
     document.getElementById("entrada").focus();
   </script>
 </html>
