@@ -703,7 +703,7 @@
       $_GET["startcommand"] != ""
     ) {
       setTimeout(function () {
-        setinput($_GET["startcommand"] + " ");
+        setinput(decodeURI($_GET["startcommand"] + " "));
 
         if (
           typeof $_GET["run"] != "undefined" &&
