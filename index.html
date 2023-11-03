@@ -371,6 +371,8 @@
     let colecao = [];
     let selectdados = [];
 
+    let rodou = false;
+
     omnifilter = function (oarr) {
       document.getElementById("outputs").style.overflow = "auto";
 
@@ -705,28 +707,40 @@
           }
         }
       }
+
+      pendencias();
+    };
+
+    pendencias = function () {
+      if (!rodou) {
+        if (
+          typeof $_GET["startcommand"] != "undefined" &&
+          $_GET["startcommand"] != null &&
+          $_GET["startcommand"] != ""
+        ) {
+          setinput(decodeURI($_GET["startcommand"] + " "));
+        }
+
+        if (
+          typeof $_GET["run"] != "undefined" &&
+          $_GET["run"] != null &&
+          $_GET["run"] != ""
+        ) {
+          clearInterval(voltaaoinput);
+          setTimeout(function () {
+            embed(selectdados[0].Link);
+          }, 300);
+        }
+
+        rodou = true;
+      }
     };
 
     if (
-      typeof $_GET["startcommand"] != "undefined" &&
-      $_GET["startcommand"] != null &&
-      $_GET["startcommand"] != ""
+      typeof $_GET["run"] == "undefined" ||
+      $_GET["run"] == null ||
+      $_GET["run"] == ""
     ) {
-      setTimeout(function () {
-        setinput(decodeURI($_GET["startcommand"] + " "));
-      }, 800);
-    }
-
-    if (
-      typeof $_GET["run"] != "undefined" &&
-      $_GET["run"] != null &&
-      $_GET["run"] != ""
-    ) {
-      clearInterval(voltaaoinput);
-      setTimeout(function () {
-        embed(selectdados[0].Link);
-      }, 1300);
-    } else {
       document.getElementById("entrada").focus();
     }
   </script>
