@@ -157,22 +157,34 @@
     });
 
     // Set focus to the input
-    let voltaaoinput = setInterval(function () {
-      document.getElementsByTagName("input")[0].focus();
-    }, 10000);
+    let voltaaoinput = "";
 
     if (
-      typeof $_GET["run"] == "undefined" ||
-      $_GET["run"] == null ||
-      $_GET["run"] != ""
+      (typeof $_GET["run"] == "undefined" ||
+        $_GET["run"] == null ||
+        $_GET["run"] == "") &&
+      (typeof $_GET["nofocus"] == "undefined" ||
+        $_GET["nofocus"] == null ||
+        $_GET["nofocus"] == "")
     ) {
+      // Set focus to the input
+      voltaaoinput = setInterval(function () {
+        document.getElementsByTagName("input")[0].focus();
+      }, 10000);
+
       document.getElementsByTagName("input")[0].onfocus = function () {
         clearInterval(voltaaoinput);
         voltaaoinput = setInterval(function () {
           document.getElementsByTagName("input")[0].focus();
         }, 10000);
       };
-    } else {
+    }
+
+    if (
+      typeof $_GET["run"] != "undefined" &&
+      $_GET["run"] != null &&
+      $_GET["run"] != ""
+    ) {
       clearInterval(voltaaoinput);
     }
 
@@ -739,9 +751,12 @@
     };
 
     if (
-      typeof $_GET["run"] == "undefined" ||
-      $_GET["run"] == null ||
-      $_GET["run"] == ""
+      (typeof $_GET["nofocus"] == "undefined" ||
+        $_GET["nofocus"] == null ||
+        $_GET["nofocus"] == "") &&
+      (typeof $_GET["run"] == "undefined" ||
+        $_GET["run"] == null ||
+        $_GET["run"] == "")
     ) {
       document.getElementById("entrada").focus();
     }
