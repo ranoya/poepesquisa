@@ -731,7 +731,7 @@
           $_GET["startcommand"] != ""
         ) {
           setTimeout(function () {
-            setinput(decodeURI($_GET["startcommand"] + " "));
+            setinput(decodeURI($_GET["startcommand"] + " "), true);
           }, 1200);
         }
 
