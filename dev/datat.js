@@ -6,7 +6,7 @@ let setinput = function (n,nf) {
           .getElementsByTagName("input")[0]
           .dispatchEvent(new Event("input", { bubbles: true }));
   
-        if (typeof nf == 'undefined' || nf == null && nf == '') {
+        if (typeof nf == 'undefined' || nf == null || nf == '') {
            document.getElementsByTagName("input")[0].focus();
         }
         
@@ -19,7 +19,7 @@ let addinput = function (n,nf) {
           .getElementById("entrada")
           .dispatchEvent(new Event("input", { bubbles: true }));
   
-        if (typeof nf == 'undefined' || nf == null && nf == '') {
+        if (typeof nf == 'undefined' || nf == null || nf == '') {
           document.getElementById("entrada").focus();
         }
 }
