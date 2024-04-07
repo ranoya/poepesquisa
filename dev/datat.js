@@ -710,11 +710,11 @@ let omnifilterfetchcsvdata = function (csvurl, el_id) {
     total = omnifdados.length;
     quantquotes = 0;
     for (let r = 0; r < total; r++) {
-      if (omnifdados.substring(r, r+1) == '"') {
+      if (omnifdados.substring(r, 1) == '"') {
         quantquotes++;
       }
 
-      if (omnifdados.substring(r, r+1) == '\n' && quantquote % 2 != 0) {
+      if (omnifdados.substring(r, 1) == '\n' && quantquote % 2 != 0) {
         omnifdados = omnifdados.substring(0, r) + ' ' + omnifdados.substring(r + 1);
       }
     }
