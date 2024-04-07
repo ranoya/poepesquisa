@@ -708,6 +708,7 @@ let omnifilterfetchcsvdata = function (csvurl, el_id) {
   fetch(csvurl).then(response => response.text()).then((omnifdados) => {
 
     total = omnifdados.length;
+    let changecsv = "";
     quantquotes = 0;
     for (let r = 0; r < total; r++) {
       if (omnifdados.substring(r, r+1) == '"') {
@@ -717,7 +718,8 @@ let omnifilterfetchcsvdata = function (csvurl, el_id) {
       console.log(omnifdados.substring(r, r+1) + " ? " + (omnifdados.substring(r, r+1) == '\n' && quantquote % 2 != 0));
 
       if (omnifdados.substring(r, r+1) == '\n' && quantquote % 2 != 0) {
-        omnifdados = omnifdados.substring(0, r) + ' ' + omnifdados.substring(r + 1);
+        changecsv = omnifdados.substring(0, r) + ' ' + omnifdados.substring(r + 1);
+        omnifdados = changecsv;
       }
 
       
