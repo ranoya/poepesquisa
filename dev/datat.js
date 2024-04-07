@@ -714,9 +714,13 @@ let omnifilterfetchcsvdata = function (csvurl, el_id) {
         quantquotes++;
       }
 
+      console.log(omnifdados.substring(r, 1) + " ? " + (omnifdados.substring(r, 1) == '\n' && quantquote % 2 != 0));
+      
       if (omnifdados.substring(r, 1) == '\n' && quantquote % 2 != 0) {
         omnifdados = omnifdados.substring(0, r) + ' ' + omnifdados.substring(r + 1);
       }
+
+      
     }
 
         let linhas = omnifdados.split(/\r?\n|\r|\n/g);
