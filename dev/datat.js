@@ -707,7 +707,17 @@ let omnifilterfetchcsvdata = function (csvurl, el_id) {
     // Fetch CSV file
   fetch(csvurl).then(response => response.text()).then((omnifdados) => {
 
-    console.log(omnifdados);
+    total = omnifdados.length;
+    quantquotes = 0;
+    for (let r = 0; r < total; r++) {
+      if (omnifdados.substring(r, r) == '"') {
+        quantquotes++;
+      }
+
+      if (omnifdados.substring(r, r) == '\n' && quantquote % 2 != 0) {
+        omnifdados.substring(0, r) + ' ' + omnifdados.substring(r + 1);
+      }
+    }
 
         let linhas = omnifdados.split(/\r?\n|\r|\n/g);
         let linhadados = "";
