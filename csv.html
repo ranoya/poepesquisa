@@ -362,7 +362,9 @@
       omnifilterfetchcsvdata($_GET["json"], "entrada");
     } else {
       omnifilterfetchcsvdata(
-        "https://docs.google.com/spreadsheets/d/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/edit#gid=444640757",
+        GoogleSheetCsvURL(
+          "https://docs.google.com/spreadsheets/d/1okckpGqePCElNUE8bTHaBFqMJpg8xILjBFQmdDqBAG8/edit#gid=444640757"
+        ),
         "entrada"
       );
     }
