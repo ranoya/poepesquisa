@@ -709,15 +709,15 @@ let omnifilterfetchcsvdata = function (csvurl, el_id) {
 
     total = omnifdados.length;
     let changecsv = "";
-    quantquotes = 0;
+    let quantquotes = 0;
     for (let r = 0; r < total; r++) {
       if (omnifdados.substring(r, r+1) == '"') {
         quantquotes++;
       }
 
-      console.log(omnifdados.substring(r, r+1) + " ? " + (omnifdados.substring(r, r+1) == '\n' && quantquote % 2 != 0));
+      console.log(omnifdados.substring(r, r+1) + " ? " + (omnifdados.substring(r, r+1) == '\n' && quantquotes % 2 != 0));
 
-      if (omnifdados.substring(r, r+1) == '\n' && quantquote % 2 != 0) {
+      if (omnifdados.substring(r, r+1) == '\n' && quantquotes % 2 != 0) {
         changecsv = omnifdados.substring(0, r) + ' ' + omnifdados.substring(r + 1);
         omnifdados = changecsv;
       }
