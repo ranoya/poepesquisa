@@ -715,7 +715,7 @@ let omnifilterfetchcsvdata = function (csvurl, el_id) {
       }
 
       if (omnifdados.substring(r, r) == '\n' && quantquote % 2 != 0) {
-        omnifdados.substring(0, r) + ' ' + omnifdados.substring(r + 1);
+        omnifdados = omnifdados.substring(0, r) + ' ' + omnifdados.substring(r + 1);
       }
     }
 
