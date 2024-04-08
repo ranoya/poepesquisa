@@ -10,9 +10,8 @@ let textos = function (par) {
 
   // Don't mess with the rest, if you don't want trouble ;-)
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-    .then((jsondata) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+    
       let dados = select(jsondata, multipatterncheck_exclude, par);
       let selectedarr = tags(dados, groupkey, ",");
         let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria'>&nbsp;</span>`;
