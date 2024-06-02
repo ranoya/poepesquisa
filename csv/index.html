@@ -491,10 +491,17 @@
           code += `<div class='tabelaflex'>`;
 
           for (let i = 0; i < arr.length; i++) {
-            code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
+            if (arr[i].Descrit.length > 300) {
+              code += `<div style='flex-basis: calc(60% - 36px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
                 ${arr[i].Descrit}<br>
                 `;
+            } else {
+              code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
+                <b>${arr[i].Titulo}</b><br>
+                ${arr[i].Descrit}<br>
+                `;
+            }
 
             let listalinks = arr[i].Tags.split(" ");
 
