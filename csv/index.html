@@ -432,7 +432,8 @@
                 padding: 10px;
                 box-shadow: 2px 2px 5px #00000011;
                 color: var(--text-color, #616161);
-                font-size: 13px;
+                font-size: 14px;
+                line-height: 22px;
 
             }
 
@@ -487,6 +488,60 @@
             </style>
             `;
 
+        // não duplica posts para cada tag diferente:
+
+        code += `<div class='tabelaflex'>`;
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].Descrit.length >= 700) {
+            code += `<div style='flex-basis: calc(100% - 48px)' class='card'>
+                <b>${arr[i].Titulo}</b><br>
+                ${arr[i].Descrit}<br>
+                `;
+          } else if (
+            arr[i].Descrit.length > 300 &&
+            arr[i].Descrit.length < 700
+          ) {
+            code += `<div style='flex-basis: calc(50% - 48px)' class='card'>
+                <b>${arr[i].Titulo}</b><br>
+                ${arr[i].Descrit}<br>
+                `;
+          } else if (arr[i].Descrit.length <= 300) {
+            code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
+                <b>${arr[i].Titulo}</b><br>
+                ${arr[i].Descrit}<br>
+                `;
+          }
+
+          let listalinks = arr[i].Tags.split(" ");
+
+          code += `<div style='display: block; text-align: right;'>`;
+
+          if (arr[i].Ref != "" && typeof arr[i].Ref != "undefined") {
+            if (typeof arr[i].Link != "undefined" && arr[i].Link != "") {
+              code += `<div class='refer'>
+                    <div><a target='_blank' href='${arr[i].Link}'>${arr[i].Ref}</a></div>
+                    </div>`;
+            } else {
+              code += `<div class='refer'>
+                    <div>${arr[i].Ref}</div>
+                    </div>`;
+            }
+          }
+
+          for (let k = 0; k < listalinks.length; k++) {
+            code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("${listalinks[k]} ");'>${listalinks[k]}</a> `;
+          }
+
+          code += `</div>`;
+
+          code += `</div>`;
+        }
+
+        code += `</div>`;
+
+        // o código abaixo duplica os posts quando há tags diferentes
+        /*
         if (notetags.length == 1 || notetags.length > 4) {
           code += `<div class='tabelaflex'>`;
 
@@ -538,6 +593,8 @@
 
           code += `</div>`;
         } else {
+
+   
           code += `<div class='tabelaacoes'>`;
 
           let colunas = [];
@@ -607,7 +664,9 @@
           }
 
           code += `</div>`;
+
         }
+        */
 
         code += `<div>`;
         if (arr.length == 0) {
