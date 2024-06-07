@@ -432,8 +432,8 @@
                 padding: 10px;
                 box-shadow: 2px 2px 5px #00000011;
                 color: var(--text-color, #616161);
-                font-size: 14px;
-                line-height: 22px;
+                font-size: 16px;
+                line-height: 24px;
 
             }
 
@@ -457,6 +457,14 @@
                 width: 100%;
                 height: 1px;
                 border-bottom: 1px dashed #bbbbbb88;
+            }
+
+            .icone {
+               height: 10px;
+            }
+
+            a:hover .icone path {
+              fill: var(--color-hover, #34f8d1);
             }
 
 
@@ -496,7 +504,7 @@
           if (arr[i].Descrit.length >= 700) {
             code += `<div style='flex-basis: calc(100% - 48px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
-                "${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})<br>
+                <a href='javascript:navigator.clipboard.writeText("\"${arr[i].Descrit}\" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})")'>"${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})</a><br>
                 `;
           } else if (
             arr[i].Descrit.length > 300 &&
@@ -504,12 +512,12 @@
           ) {
             code += `<div style='flex-basis: calc(50% - 48px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
-                "${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})<br>
+                <a href='javascript:navigator.clipboard.writeText("\"${arr[i].Descrit}\" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})")'>"${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})</a><br>
                 `;
           } else if (arr[i].Descrit.length <= 300) {
             code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
-                "${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})<br>
+                <a href='javascript:navigator.clipboard.writeText("\"${arr[i].Descrit}\" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})")'>"${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})</a><br>
                 `;
           }
 
@@ -520,11 +528,14 @@
           if (arr[i].Ref != "" && typeof arr[i].Ref != "undefined") {
             if (typeof arr[i].Link != "undefined" && arr[i].Link != "") {
               code += `<div class='refer'>
-                    <div><a target='_blank' href='${arr[i].Link}'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
+                    <div><a target='_blank' href='${arr[i].Link}'>
+                      <svg class="icone" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M31 12.7742L23.3077 6H11V34H31V12.7742Z" fill="var(--color-link, #bdb5b5)"/>
+                    </svg></a> <a href='javascript:navigator.clipboard.writeText("${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}")'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
                     </div>`;
             } else {
               code += `<div class='refer'>
-                    <div>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</div>
+                    <div><a href='javascript:navigator.clipboard.writeText("${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}")'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
                     </div>`;
             }
           }
