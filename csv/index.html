@@ -496,7 +496,7 @@
           if (arr[i].Descrit.length >= 700) {
             code += `<div style='flex-basis: calc(100% - 48px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
-                ${arr[i].Descrit}<br>
+                "${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})<br>
                 `;
           } else if (
             arr[i].Descrit.length > 300 &&
@@ -504,12 +504,12 @@
           ) {
             code += `<div style='flex-basis: calc(50% - 48px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
-                ${arr[i].Descrit}<br>
+                "${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})<br>
                 `;
           } else if (arr[i].Descrit.length <= 300) {
             code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
-                ${arr[i].Descrit}<br>
+                "${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})<br>
                 `;
           }
 
@@ -520,11 +520,11 @@
           if (arr[i].Ref != "" && typeof arr[i].Ref != "undefined") {
             if (typeof arr[i].Link != "undefined" && arr[i].Link != "") {
               code += `<div class='refer'>
-                    <div><a target='_blank' href='${arr[i].Link}'>${arr[i].Ref}</a></div>
+                    <div><a target='_blank' href='${arr[i].Link}'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
                     </div>`;
             } else {
               code += `<div class='refer'>
-                    <div>${arr[i].Ref}</div>
+                    <div>${arr[i].Link}'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</div>
                     </div>`;
             }
           }
