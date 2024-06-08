@@ -1,13 +1,27 @@
 :root {
-  --bg-color: #000000;
-  --line-separator: #514d4d;
-  --text-color: #a7caca;
-  --color-link: #bdb5b5;
-  --color-hover: #34f8d1;
+  --bg-color: #99b1bb;
+  --line-separator: #3b7683;
+  --text-color: #444d4d;
+  --color-link: #4c6469;
+  --color-hover: #d2eaff;
   --input-text: #cfeceb;
   --scroll-track: #ffffff00;
   --ranoyav2-texto: #aaaaaa;
   --ranoyav2-detalhes3: #34f8d1;
+}
+
+@media (prefer-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --line-separator: #514d4d;
+    --text-color: #a7caca;
+    --color-link: #bdb5b5;
+    --color-hover: #34f8d1;
+    --input-text: #cfeceb;
+    --scroll-track: #ffffff00;
+    --ranoyav2-texto: #aaaaaa;
+    --ranoyav2-detalhes3: #34f8d1;
+  }
 }
 
 label {
