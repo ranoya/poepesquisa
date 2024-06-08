@@ -376,6 +376,11 @@
 
     let rodou = false;
 
+    let clipper = function (gurl) {
+      console.log(gurl);
+      navigator.clipboard.writeText(gurl);
+    };
+
     omnifilter = function (oarr) {
       document.getElementById("outputs").style.overflow = "auto";
 
@@ -403,11 +408,6 @@
           arr = select(oarr, multipatterncheck_exclude, par);
           notetags = tags(arr, "Tags", " ");
         }
-
-        let clipper = function (gurl) {
-          console.log(gurl);
-          navigator.clipboard.writeText(gurl);
-        };
 
         code += `
             <style>
